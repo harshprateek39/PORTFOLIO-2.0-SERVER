@@ -35,6 +35,9 @@ app.use(session({
     store:store
 }));
 app.use(express.json({limit:"30mb"}));
+app.get('/',(req,res)=>{
+  res.send("Working fine");
+})
 app.use( '/api/v1',router);
 app.get('/verify',sessionAuthChecker,(req,res)=>{
     res.status(200).json({ message: 'Authorised' ,success:true});
