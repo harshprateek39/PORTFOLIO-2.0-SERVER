@@ -16,8 +16,20 @@ const PASSWORD = process.env.DB_PASSWORD;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://your-frontend-domain.com",
+    "https://another-frontend.com"
+];
 app.use(cors(
-    {origin :"http://localhost:3000",
+    {
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
 credentials:true}
 ));
 dbConnection();
@@ -30,7 +42,7 @@ app.use(session({
     secret:'apple',
     resave:false,
     saveUninitialized:false,
-    cookie:{secure:false,maxAge:30000000},
+    cookie:{secure:false,maxAge:3000000},
     store:store
 }));
 app.use(express.json({limit:"30mb"}));
