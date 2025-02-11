@@ -44,7 +44,11 @@ app.use(session({
     secret:'apple',
     resave:false,
     saveUninitialized:false,
-    cookie:{secure:false,maxAge:30000000},
+    cookie:{
+        secure:process.env.NODE_ENV === "production",
+        maxAge:30000000,
+        sameSite:"none",
+        httpOnly:true},
     store:store
 }));
 app.use(express.json({limit:"30mb"}));
