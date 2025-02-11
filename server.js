@@ -20,7 +20,7 @@ const allowedOrigins = [
     "http://localhost:3000",
     "https://your-frontend-domain.com",
     "https://another-frontend.com",
-    null
+    "null"
 ];
 app.use(cors(
     {
