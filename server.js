@@ -19,7 +19,8 @@ app.use(cookieParser());
 const allowedOrigins = [
     "http://localhost:3000",
     "https://your-frontend-domain.com",
-    "https://another-frontend.com"
+    "https://another-frontend.com",
+    null
 ];
 app.use(cors(
     {
