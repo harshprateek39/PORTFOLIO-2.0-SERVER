@@ -3,7 +3,7 @@ import signature from "cookie-signature";
 export const sessionAuthChecker = async (req, res, next) => {
     try {
         // Ensure cookies are present
-        console.log("cookies",req.cookies);
+        console.log("cookies",req.cookies.user_sID);
         if (!req.cookies || !req.cookies.user_sID) {
             return res.status(401).json({ message: "No session found", success: false });
         }
