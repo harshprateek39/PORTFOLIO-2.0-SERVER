@@ -19,6 +19,7 @@ import session from "express-session";
     if(!isValidEmail(email)){res.json({ message:"Invalid email"})}
     else{
     let user= await UserModel.findOne({email});
+    console.log(user);
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json({ message:"Bad Credentials"});
       }

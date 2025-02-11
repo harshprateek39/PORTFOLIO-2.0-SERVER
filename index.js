@@ -36,7 +36,7 @@ app.use(session({
 }));
 app.use(express.json({limit:"30mb"}));
 app.get('/',(req,res)=>{
-  res.send("Working fine");
+  res.send("Working  perfectly fine");
 })
 app.use( '/api/v1',router);
 app.get('/verify',sessionAuthChecker,(req,res)=>{
