@@ -19,7 +19,7 @@ const PASSWORD = process.env.DB_PASSWORD;
 const app = express();
 
 // ✅ 1. Use dynamic `secure` setting based on environment
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = true;
 
 // ✅ 2. Body Parser & Cookie Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
