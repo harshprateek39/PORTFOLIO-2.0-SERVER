@@ -20,7 +20,8 @@ const allowedOrigins = [
     "http://localhost:3000",
     "https://your-frontend-domain.com",
     "https://another-frontend.com",
-    "null"
+    "null",
+    "https://portfolio-2-0-admin.vercel.app"
 ];
 app.use(cors(
     {
